@@ -3,6 +3,7 @@ package com.engfabiorogerio.projetojsp.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,11 +15,11 @@ import com.engfabiorogerio.projetojsp.model.Cliente;
 
 
 @WebServlet(name = "ClienteCreateAndFind", urlPatterns = { "/CreateAndFind" })
-public class ClienteCreateAndSelect extends HttpServlet {
+public class ClienteCreateAndFind extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-    public ClienteCreateAndSelect() {
+    public ClienteCreateAndFind() {
         
     }
 
@@ -33,6 +34,10 @@ public class ClienteCreateAndSelect extends HttpServlet {
 		
 		List<Cliente> clientes = ClienteDAO.find(pesquisa);
 		
+		request.setAttribute("clientes", clientes);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("lista.jsp");
+		requestDispatcher.forward(request, response);
+		
 	}
 
 	
@@ -46,6 +51,8 @@ public class ClienteCreateAndSelect extends HttpServlet {
 		cliente.setSituacao(request.getParameter("situacao"));
 		
 		ClienteDAO.create(cliente);
+		
+		doGet(request, response);
 	}
 
 }

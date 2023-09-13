@@ -62,7 +62,7 @@ public class ClienteDAO implements CRUD {
 				cliente.setId(resultSet.getInt("id"));
 				cliente.setNome(resultSet.getString("nome"));
 				cliente.setCpf(resultSet.getString("cpf"));
-				cliente.setNascimento(resultSet.getString("nascimnento"));
+				cliente.setNascimento(resultSet.getString("nascimento"));
 				cliente.setSituacao(resultSet.getString("situacao"));
 				
 				clientes.add(cliente);
