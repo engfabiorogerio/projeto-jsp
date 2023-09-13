@@ -1,6 +1,7 @@
 package com.engfabiorogerio.projetojsp.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,14 @@ public class ClienteCreateAndSelect extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String pesquisa = request.getParameter("pesquisa");
+		
+		if(pesquisa == null) {
+			pesquisa = "";
+		}
+		
+		List<Cliente> clientes = ClienteDAO.find(pesquisa);
 		
 	}
 
