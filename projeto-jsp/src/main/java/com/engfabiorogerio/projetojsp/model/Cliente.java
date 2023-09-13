@@ -7,7 +7,7 @@ public class Cliente {
 	private int id;
 	private String nome;
 	private String cpf;
-	private Date nascimento;
+	private String nascimento;
 	private String situacao;
 	
 	public Cliente() {
@@ -38,11 +38,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Date getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 
